@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language
+  name="JSX"
+  section="Scripts"
+  extensions="*.js;*.jsx"
+  mimetype="text/jsx"
+  version="0.0.1"
+  kateversion="3.12.0"
+  priority="1"
+  indenter="cstyle"
+  author="Rafał Rzepecki (divided.mind@gmail.com)"
+  license="MIT"
+>
+  <highlighting>
+    <contexts>
+      <context name="JavaScript" lineEndContext="#stay" attribute="Normal Text">
+        <IncludeRules context="##JavaScript" />
+      </context>
+    </contexts>
+     <itemDatas>
+       <itemData name="Normal Text" defStyleNum="dsNormal" />
+      </itemDatas>
+  </highlighting>
+</language>
