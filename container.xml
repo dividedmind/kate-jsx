@@ -12,4 +12,11 @@
   author="Rafał Rzepecki (divided.mind@gmail.com)"
   license="MIT"
 >
+  <highlighting>
+    <contexts>
+      <context name="Normal">
+        <DetectChar char="&lt;" context="Start (XML)" lookAhead="true" />
+      </context>
+    </contexts>
+  </highlighting>
 </language>
