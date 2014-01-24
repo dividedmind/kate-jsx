@@ -15,19 +15,26 @@
   <highlighting>
     <contexts>
       <context name="Normal">
+        <keyword attribute="Keyword" String="keywords"/>
+        <keyword attribute="Reserved" String="reserved"/>
+        <keyword attribute="Keyword" context="NoRegExp" String="primitives"/>
         <IncludeRules context="FindXML (XML)" />
       </context>
+
       <context name="FindXML (XML)">
+        <DetectChar char="{" context="Nested JS text" />
+      </context>
+
+      <context name="Value (XML)">
         <DetectChar char="{" context="Nested JS" />
       </context>
-      <context name="Value (XML)">
-        <DetectChar char="{" context="Nested JS Attribute" />
-      </context>
-      <context name="Nested JS" lineEndContext="#stay" attribute="Normal Text" >
+
+      <context name="Nested JS text" lineEndContext="#stay" attribute="Normal Text" >
         <DetectChar char="}" context="#pop" />
         <IncludeRules context="Normal" />
       </context>
-      <context name="Nested JS Attribute" lineEndContext="#stay" attribute="Normal Text" >
+
+      <context name="Nested JS" lineEndContext="#stay" attribute="Normal Text" >
         <DetectChar char="}" context="#pop#pop#pop" />
         <IncludeRules context="Normal" />
       </context>
