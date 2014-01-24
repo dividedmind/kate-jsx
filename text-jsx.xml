@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="text/jsx">
+         <comment xml:lang="en">React.js JSX</comment>
+         <magic priority="50">
+                <match type="string" value="@jsx" offset="3:6"/>
+         </magic>
+         <glob pattern="*.js"/>
+         <glob pattern="*.jsx"/>
+  </mime-type>
+</mime-info>
