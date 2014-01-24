@@ -12,14 +12,4 @@
   author="Rafał Rzepecki (divided.mind@gmail.com)"
   license="MIT"
 >
-  <highlighting>
-    <contexts>
-      <context name="JavaScript" lineEndContext="#stay" attribute="Normal Text">
-        <IncludeRules context="##JavaScript" />
-      </context>
-    </contexts>
-     <itemDatas>
-       <itemData name="Normal Text" defStyleNum="dsNormal" />
-      </itemDatas>
-  </highlighting>
 </language>
