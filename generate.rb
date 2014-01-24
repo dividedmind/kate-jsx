@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'nokogiri'
-#require 'nokogiri/pp'
 require 'pp'
 
 jspath = '/usr/share/apps/katepart/syntax/javascript.xml'
@@ -20,15 +19,18 @@ end
 
 jsx = xml.dup # copy the document to get the entities
 jsx.root.remove
-jsx.add_child Nokogiri::XML(File.read 'container.xml').root
+jsx.add_child Nokogiri::XML(File.read 'patch.xml').root
 
 patches = jsx.at('highlighting').swap js.at('highlighting')
 jsx.at('contexts') << xml.at('contexts').children
 jsx.at('itemDatas') << xml.at('itemDatas').children
 
 patches.search('context').each do |context|
-  p "context[name=\"#{context['name']}\"]"
-  jsx.at("context[name=\"#{context['name']}\"]").child.before context.children
+  if place = jsx.at("context[name=\"#{context['name']}\"]")
+    place.child.before context.children
+  else
+    jsx.at('context').before context
+  end
 end
 
 File.write 'jsx.xml', jsx.to_xml

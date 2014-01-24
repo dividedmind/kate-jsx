@@ -17,6 +17,9 @@
       <context name="Normal">
         <DetectChar char="&lt;" context="Start (XML)" lookAhead="true" />
       </context>
+      <context name="Value (XML)">
+        <DetectChar char="{" context="Normal" />
+      </context>
     </contexts>
   </highlighting>
 </language>
