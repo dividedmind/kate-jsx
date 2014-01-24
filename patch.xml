@@ -18,7 +18,11 @@
         <DetectChar char="&lt;" context="Start (XML)" lookAhead="true" />
       </context>
       <context name="Value (XML)">
-        <DetectChar char="{" context="Normal" />
+        <DetectChar char="{" context="Nested JS" />
+      </context>
+      <context name="Nested JS" lineEndContext="#stay" attribute="Normal Text" >
+        <DetectChar char="}" context="#pop#pop#pop" />
+        <IncludeRules context="Normal" />
       </context>
     </contexts>
   </highlighting>
