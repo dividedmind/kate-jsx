@@ -15,12 +15,19 @@
   <highlighting>
     <contexts>
       <context name="Normal">
-        <DetectChar char="&lt;" context="Start (XML)" lookAhead="true" />
+        <IncludeRules context="FindXML (XML)" />
       </context>
-      <context name="Value (XML)">
+      <context name="FindXML (XML)">
         <DetectChar char="{" context="Nested JS" />
       </context>
+      <context name="Value (XML)">
+        <DetectChar char="{" context="Nested JS Attribute" />
+      </context>
       <context name="Nested JS" lineEndContext="#stay" attribute="Normal Text" >
+        <DetectChar char="}" context="#pop" />
+        <IncludeRules context="Normal" />
+      </context>
+      <context name="Nested JS Attribute" lineEndContext="#stay" attribute="Normal Text" >
         <DetectChar char="}" context="#pop#pop#pop" />
         <IncludeRules context="Normal" />
       </context>
